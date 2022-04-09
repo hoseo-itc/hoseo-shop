@@ -21,7 +21,7 @@ public class MemberController {
 
     @RequestMapping("/save")
     public String save(Member member){
-        memberRepository.save(member);
+        //memberRepository.save(member);
         return "redirect:/";
     };
 

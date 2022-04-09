@@ -31,7 +31,7 @@ public class MemberRepositoryImp implements MemberRepository {
     @Override
     public void insert(Member m) {
         template.update("insert into member (id, name , password, role, address, telno, email, use_yn) " +
-                "values ( ? ,? , ? ,? ,? ,? ,? ,?  )", m.getId(), m.getName(), m.getPassword(), m.getRole(), m.getAddress(), m.getTelno(), m.getEmail(), m.getUse_yn());
+                "values ( ? ,? , ? ,? ,? ,? ,? ,?  )", m.getId(), m.getName(), m.getPassword(), m.getRole(), m.getAddress(), m.getTelno(), m.getEmail(), m.getUseYn());
     }
 
     @Override
