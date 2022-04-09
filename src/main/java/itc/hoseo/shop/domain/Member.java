@@ -16,5 +16,5 @@ public class Member {
     private String address;
     private String telno;
     private String email;
-    private String use_yn;
+    private String useYn;
 }

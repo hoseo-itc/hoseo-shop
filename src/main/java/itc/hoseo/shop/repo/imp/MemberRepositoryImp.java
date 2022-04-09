@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 @Primary
-public class DBMemberRepository implements MemberRepository {
+public class MemberRepositoryImp implements MemberRepository {
     @Autowired
     JdbcTemplate template;
 
@@ -29,7 +29,14 @@ public class DBMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Member save(Member m) {
-        return null;
+    public void insert(Member m) {
+        template.update("insert into member (id, name , password, role, address, telno, email, use_yn) " +
+                "values ( ? ,? , ? ,? ,? ,? ,? ,?  )", m.getId(), m.getName(), m.getPassword(), m.getRole(), m.getAddress(), m.getTelno(), m.getEmail(), m.getUse_yn());
+    }
+
+    @Override
+    public void update(Member m) {
+        template.update("update member set password = ? , address = ? , telno = ? , email = ? , use_yn = ? where id = ?",
+                m.getPassword(), m.getAddress(), m.getTelno(), m.getEmail(), m.getUseYn(), m.getId());
     }
 }

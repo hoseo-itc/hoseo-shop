@@ -7,5 +7,6 @@ import java.util.List;
 public interface MemberRepository {
     List<Member> findAll();
     Member findById(String id);
-    Member save(Member m);
+    void insert(Member m);
+    void update(Member m);
 }

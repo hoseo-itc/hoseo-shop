@@ -11,10 +11,10 @@ create table if not exists member (
 );
 
 
-create table login_log (
+create table if not exists login_log (
     seq int auto_increment primary key,
     id varchar(255) not null,
     ip varchar(255),
-    login_status char(1) not_null,
-    login_dttm datetime CURRENT_TIMESTAMP
+    login_status char(1) not null,
+    login_dttm TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
