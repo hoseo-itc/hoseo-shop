@@ -1,12 +1,11 @@
-package itc.hoseo.sample.web;
+package itc.hoseo.shop.web;
 
-import itc.hoseo.sample.domain.Member;
-import itc.hoseo.sample.repo.MemberRepository;
+import itc.hoseo.shop.domain.Member;
+import itc.hoseo.shop.repo.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemberController {

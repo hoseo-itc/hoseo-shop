@@ -1,7 +1,7 @@
-package itc.hoseo.sample.repo.imp;
+package itc.hoseo.shop.repo.imp;
 
-import itc.hoseo.sample.domain.Member;
-import itc.hoseo.sample.repo.MemberRepository;
+import itc.hoseo.shop.domain.Member;
+import itc.hoseo.shop.repo.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -23,9 +23,13 @@ public class DBMemberRepository implements MemberRepository {
     }
 
     @Override
+    public Member findById(String id) {
+        return template.queryForObject("select * from member where id = ?",
+                new BeanPropertyRowMapper<>(Member.class), id);
+    }
+
+    @Override
     public Member save(Member m) {
-        template.update("insert into member values(?,?)",
-                m.getName(), m.getAge());
-        return m;
+        return null;
     }
 }

@@ -1,13 +1,10 @@
-package itc.hoseo.sample;
+package itc.hoseo.shop;
 
-import itc.hoseo.sample.domain.Member;
-import itc.hoseo.sample.repo.MemberRepository;
-import itc.hoseo.sample.repo.imp.HashMapMemberRepository;
+import itc.hoseo.shop.domain.Member;
+import itc.hoseo.shop.repo.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -19,10 +16,11 @@ class SampleApplicationTests {
 
     @Test
     void contextLoads() {
+        assertEquals("1q2w3e4r!!",memberRepository.findById("admin").getPassword());
 
-        memberRepository.save(new Member("1",1));
-        memberRepository.save(new Member("2",2));
-        assertEquals(2,memberRepository.findAll().size());
+        Member m = new Member();
+        m.getPassword().equals("123");
+
 
     }
 
