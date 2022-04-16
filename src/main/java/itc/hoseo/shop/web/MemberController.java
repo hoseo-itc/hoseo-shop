@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -18,9 +19,19 @@ public class MemberController {
     MemberRepository memberRepository;
 
     @RequestMapping("/")
-    public String index(ModelMap mm){
+    public String index(ModelMap mm, HttpSession session){
         mm.put("members", memberRepository.findAll());
         return "index";
+    };
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(){
+        return "login";
+    };
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signup(ModelMap mm){
+        return "signup";
     };
 
     @RequestMapping("/save")
