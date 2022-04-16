@@ -3,9 +3,13 @@ package itc.hoseo.shop.web;
 import itc.hoseo.shop.domain.Member;
 import itc.hoseo.shop.repo.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -23,6 +27,21 @@ public class MemberController {
     public String save(Member member){
         //memberRepository.save(member);
         return "redirect:/";
+    };
+
+
+    @RequestMapping("/dummyLogin")
+    @ResponseBody
+    public String login(String id, HttpSession session){
+        session.setAttribute("id", id);
+        return id;
+    };
+
+    @RequestMapping("/getLoginedId")
+    @ResponseBody
+    public String getLoginedId(HttpSession session){
+        String id = (String)session.getAttribute("id");
+        return id;
     };
 
 }

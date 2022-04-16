@@ -10,7 +10,6 @@ create table if not exists member (
     use_yn char(1) not null default 'Y'
 );
 
-
 create table if not exists login_log (
     seq int auto_increment primary key,
     id varchar(255) not null,
@@ -18,3 +17,13 @@ create table if not exists login_log (
     login_status char(1) not null,
     login_dttm TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+create table if not exists favorite (
+    seq int auto_increment primary key,
+    member_seq int not null,
+    name varchar(255) not null
+);
+
+create unique index if not exists uq_favorite
+ON favorite(member_seq, name);
