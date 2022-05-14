@@ -25,5 +25,11 @@ create table if not exists favorite (
     name varchar(255) not null
 );
 
+alter table favorite
+    ADD FOREIGN KEY (member_seq)
+    REFERENCES member(seq);
+
 create unique index if not exists uq_favorite
 ON favorite(member_seq, name);
+
+
