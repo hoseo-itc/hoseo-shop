@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoseo Shop!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Check for click events on the navbar burger icon
+            $(".navbar-burger").click(function() {
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+
+            });
+        });
+    </script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+            grid-gap: 0.5em;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="/images/logo.png" >
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/">
+                메인화면
+            </a>
+
+            <a class="navbar-item" href="https://11st.co.kr/">
+                상품목록
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="signup">
+                        <strong>회원 가입</strong>
+                    </a>
+                    <a class="button is-light" href="login">
+                        로그인
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="section">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="/images/icons/icons8-super-mario-100.png">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">마사장</p>
+                        <p class="subtitle is-6">@mario</p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    역시 호서몰에서 구매한 도지코인이 최고에요!!
+                    <br/><a>@자유게시판</a>
+                    <br>
+                    2022-05-27 오후 7시 19분 씀
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
