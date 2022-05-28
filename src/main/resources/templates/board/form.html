@@ -73,11 +73,12 @@
     <div class="container">
         <div>
             <form action="/board/submit" method="post">
+                <div class="columns">
+                    <input type="text" class="column input is-primary is-three-quarters" name="title" placeholder="제목"/>
+                    <input type="text" class="column input is-info" name="wrtrName" placeholder="작성자 이름"/>
+                    <input type="password" class="column input is-danger" name="password" placeholder="비밀번호"/>
+                </div>
                 <input type="hidden" name="id" value="lyrics"/>
-                <input type="text" class="input is-primary" name="title" placeholder="제목"/>
-                <input type="text" class="input is-primary" name="rgstDttm" placeholder="날자"/>
-                <input type="text" class="input is-info" name="wrtrName" placeholder="작성자 이름"/>
-                <input type="password" class="input is-danger" name="password" placeholder="비밀번호"/>
                 <textarea id="tiny" name="ctnt"></textarea>
             </form>
         </div>
