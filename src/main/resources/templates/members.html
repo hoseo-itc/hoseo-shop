@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hoseo Shop!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link href="/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -17,31 +16,15 @@
                 $(".navbar-menu").toggleClass("is-active");
 
             });
-
-            let cardToggles = document.getElementsByClassName('card-toggle');
-            for (let i = 0; i < cardToggles.length; i++) {
-                cardToggles[i].addEventListener('click', e => {
-                    e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
-                });
-            }
         });
-
-
     </script>
-    <style>
-        .container{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-            grid-gap: 0.5em;
-        }
-    </style>
 </head>
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <img src="/images/logo.png" >
+            <img src="images/logo.png" >
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -79,36 +62,25 @@
 
 <section class="section">
     <div class="container">
-        <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    [이마트몰] 햇반210g x 36개 59,700원 -> 29,900원(무료)
-                </p>
-                <a class="card-header-icon card-toggle">
-                    <i class="fa fa-angle-down"></i>
-                </a>
-            </header>
-            <div class="card-content is-hidden">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img src="/images/icons/icons8-super-mario-100.png">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-4">마사장</p>
-                        <p class="subtitle is-6">@mario</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    역시 호서몰에서 구매한 도지코인이 최고에요!!
-                    <br/><a>@뽐뿌 </a>
-                    <br>
-                    2022-05-27 오후 7시 19분 씀
-                </div>
-            </div>
-        </div>
+        <h1>
+            회원목록
+        </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>이메일</th>
+                    <th>사용여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="m : ${members}">
+                    <td th:text="${m.name}"></td>
+                    <td th:text="${m.email}"></td>
+                    <td th:text="${m.useYn}"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 </body>

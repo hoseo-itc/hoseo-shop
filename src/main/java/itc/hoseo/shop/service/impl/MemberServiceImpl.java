@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @ControllerAdvice
@@ -31,5 +33,10 @@ public class MemberServiceImpl implements MemberService {
             favoriteRepository.insert(f);
         }
         return true;
+    }
+
+    @Override
+    public List<Member> getAllMembers() {
+        return memberRepository.findAll();
     }
 }

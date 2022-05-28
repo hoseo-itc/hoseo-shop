@@ -2,6 +2,7 @@ package itc.hoseo.shop.web;
 
 import itc.hoseo.shop.domain.Member;
 import itc.hoseo.shop.repo.MemberRepository;
+import itc.hoseo.shop.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
@@ -11,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class MemberController {
 
     @Autowired
     MemberRepository memberRepository;
+
+    @Autowired
+    MemberService memberServiceImpl;
 
     @RequestMapping("/")
     public String index(ModelMap mm, HttpSession session){
@@ -54,5 +59,17 @@ public class MemberController {
         String id = (String)session.getAttribute("id");
         return id;
     };
+
+    @RequestMapping("/allMembers")
+    @ResponseBody
+    public List<Member> getAllMembers(ModelMap mm){
+        return memberServiceImpl.getAllMembers();
+    }
+
+    @RequestMapping("/members")
+    public String geMembers(ModelMap mm){
+        mm.put("members", memberServiceImpl.getAllMembers());
+        return "members";
+    }
 
 }

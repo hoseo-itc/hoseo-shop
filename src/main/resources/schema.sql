@@ -32,4 +32,16 @@ alter table favorite
 create unique index if not exists uq_favorite
 ON favorite(member_seq, name);
 
+create table if not exists board (
+    seq int auto_increment primary key,
+    id varchar(255) not null,
+    wrtr_name varchar(255),
+    password varchar(255),
+    title varchar(255),
+    ctnt varchar(4096),
+    rgst_dttm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    del_yn char(1) DEFAULT 'N' not null
+);
+create index if not exists idx_board_id_del_yn on board (id,del_yn);
+
 
