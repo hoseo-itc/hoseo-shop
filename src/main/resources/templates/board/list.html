@@ -79,9 +79,9 @@
 
 <section class="section">
     <div class="container">
-        <div class="card">
+        <div class="card" th:each="b : ${list}">
             <header class="card-header">
-                <p class="card-header-title">
+                <p class="card-header-title" th:text="${b.title}">
                     [이마트몰] 햇반210g x 36개 59,700원 -> 29,900원(무료)
                 </p>
                 <a class="card-header-icon card-toggle">
@@ -96,12 +96,12 @@
                         </figure>
                     </div>
                     <div class="media-content">
-                        <p class="title is-4">마사장</p>
+                        <p class="title is-4" th:text="${b.wrtrName}">마사장</p>
                         <p class="subtitle is-6">@mario</p>
                     </div>
                 </div>
 
-                <div class="content">
+                <div class="content" th:utext="${b.ctnt}">
                     역시 호서몰에서 구매한 도지코인이 최고에요!!
                     <br/><a>@뽐뿌 </a>
                     <br>

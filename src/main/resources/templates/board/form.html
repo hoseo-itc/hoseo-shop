@@ -72,7 +72,14 @@
 <section class="section">
     <div class="container">
         <div>
-            <textarea id="tiny">&lt;p&gt;Welcome to the TinyMCE jQuery example!&lt;/p&gt;</textarea>
+            <form action="/board/submit" method="post">
+                <input type="hidden" name="id" value="lyrics"/>
+                <input type="text" class="input is-primary" name="title" placeholder="제목"/>
+                <input type="text" class="input is-primary" name="rgstDttm" placeholder="날자"/>
+                <input type="text" class="input is-info" name="wrtrName" placeholder="작성자 이름"/>
+                <input type="password" class="input is-danger" name="password" placeholder="비밀번호"/>
+                <textarea id="tiny" name="ctnt"></textarea>
+            </form>
         </div>
     </div>
 </section>
