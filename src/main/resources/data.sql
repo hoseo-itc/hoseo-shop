@@ -11,7 +11,7 @@ insert into login_log (id, login_status) values ( 'user3', 'N' );
 insert into login_log (id, login_status) values ( 'user3', 'N' );
 
 
-insert into board (id,wrtr_name,password,title,ctnt) values ( 'lyrics', '뽀로로','1q2w3e4r','바라밤'
+insert into board (id,wrtr_name,password,title,ctnt) values ( ' ', '뽀로로','1q2w3e4r','바라밤'
 ,'밤바라 밤바라 밤바라 밤
 <p>밤바라 밤바라 밤바라 밤</p>
 바라바라 밤 바라바라 밤

@@ -75,7 +75,7 @@
             <form action="/board/submit" method="post">
                 <div class="columns">
                     <input type="text" class="column input is-primary is-three-quarters" name="title" placeholder="제목"/>
-                    <input type="text" class="column input is-info" name="wrtrName" placeholder="작성자 이름"/>
+                    <input type="text" class="column input is-info" name="wrtrName" placeholder="작성자 이름" th:value="${session.fulnm}"/>
                     <input type="password" class="column input is-danger" name="password" placeholder="비밀번호"/>
                 </div>
                 <input type="hidden" name="id" value="lyrics"/>
