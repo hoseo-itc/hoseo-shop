@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  build:
+    commands:
+      - echo starting build stage
+      - mvn -DskipTests package
+      - mv target/*.jar hoseo-shop.jar
+artifacts:
+  files:
+    - hoseo-shop.jar
+    - .ebextensions/**/*
+    - Procfile
+  discard-paths: no
+cache:
+  paths:
+    - '/root/.m2/**/*'

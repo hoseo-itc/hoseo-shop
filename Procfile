@@ -1,0 +1,1 @@
+web: java -jar -Djsse.enableSNIExtension=false hoseo-shop.jar
